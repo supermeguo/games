@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>左轮手枪游戏</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>左轮手枪喝酒游戏</h1>
+    <p>点击按钮来拉动扳机，看你是安全还是需要喝酒！</p>
+    <button onclick="playGame()">拉动扳机</button>
+    <p id="result"></p>
+
+    <script>
+        function playGame() {
+            const bulletPosition = Math.floor(Math.random() * 6);  // 随机生成子弹位置 (0-5)
+            const triggerPull = Math.floor(Math.random() * 6);  // 随机触发位置 (0-5)
+            const resultElement = document.getElementById('result');
+
+            if (bulletPosition === triggerPull) {
+                resultElement.textContent = '你开枪了！喝一杯！';
+                resultElement.style.color = 'red';
+            } else {
+                resultElement.textContent = '安全！继续游戏。';
+                resultElement.style.color = 'green';
+            }
+        }
+    </script>
+</body>
+</html>
